@@ -1,0 +1,40 @@
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg,
+        #f5d742 0%,
+        #e5c028 25%,
+        #d4af37 50%,
+        #e5c028 75%,
+        #f5d742 100%);
+    color: var(--color-primary);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    border: 1px solid white;
+    outline: 1px solid white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5);
+}
+
+.btn-secondary {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+.btn-secondary:hover {
+    background-color: #45a049;
+}

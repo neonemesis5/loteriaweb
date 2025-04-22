@@ -1,0 +1,13 @@
+:root {
+    --color-primary: #000000;
+    --color-secondary: #d4af37;
+    --color-accent: #2ecc71;
+    --color-text: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-overlay: rgba(0, 0, 0, 0.7);
+    --color-error: #f80505;
+    --color-success: #4CAF50;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}

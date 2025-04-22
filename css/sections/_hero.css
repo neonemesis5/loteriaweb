@@ -1,0 +1,62 @@
+.hero-section {
+    position: relative;
+    height: 110vh;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.hero-background {
+    background-image: url('../resources/image2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+
+.purple-bar {
+    position: relative;
+    height: 70px;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(60, 16, 136, 0.75);
+    margin-top: 120px;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+.lottery-promo {
+    position: relative;
+    z-index: 2;
+    background-color: rgb(146 100 224 / 55%);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    max-width: 800px;
+    margin: 0 auto;
+    backdrop-filter: blur(5px);
+    margin-top: -100px;
+}
+
+.lottery-promo div {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: var(--color-text);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}

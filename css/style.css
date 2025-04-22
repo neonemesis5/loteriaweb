@@ -1,0 +1,1553 @@
+/* Reset mejorado y variables de color */
+:root {
+	--color-primary: #000000;
+	/* Negro */
+	--color-secondary: #d4af37;
+	/* Dorado */
+	--color-accent: #2ecc71;
+	/* Verde */
+	--color-text: #ffffff;
+	/* Blanco */
+	--color-text-secondary: #cccccc;
+	--color-overlay: rgba(0, 0, 0, 0.7);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, sans-serif;
+	color: inherit;
+	/* Utiliza el color heredado del elemento padre */
+	text-decoration: none;
+	/* Opcional: Quita el subrayado del enlace */
+}
+
+body {
+	background-color: var(--color-primary);
+	color: var(--color-text);
+	min-height: 100vh;
+	line-height: 1.6;
+}
+
+/* Header moderno */
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	background-color: var(--color-primary);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1000;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+	max-width: 180px;
+	height: auto;
+	transition: transform 0.3s ease;
+}
+
+.logo:hover {
+	transform: scale(1.05);
+}
+
+/* Navegación mejorada */
+.main-nav ul {
+	display: flex;
+	list-style: none;
+	gap: 1.5rem;
+}
+
+.main-nav a {
+	color: var(--color-text);
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.main-nav a:hover {
+	color: var(--color-secondary);
+}
+
+.main-nav a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 2px;
+	background-color: var(--color-secondary);
+	transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+	width: 70%;
+}
+
+/* Hero section mejorada */
+.hero-section {
+	position: relative;
+	height: 110vh;
+	width: 100%;
+	/* display: flex; */
+	/* flex-direction: column;
+	justify-content: center; */
+	align-items: center;
+	text-align: center;
+	padding-top: 20px;
+}
+.hero-background{
+	background-image: url('../resources/image2.png');
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+	height: 400px;
+}
+.purple-bar {
+	position: relative;
+	height: 70px;
+	width: 100%;
+	background-color: purple;
+	z-index: 1;
+	backdrop-filter: blur(5px);
+	background-color: rgba(60, 16, 136, 0.75);
+	margin-top: 120px;
+}
+
+
+.hero-text {
+	position: relative;
+	z-index: 2;
+	max-width: 800px;/*revisar*/
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+.hero-text h1 {
+	font-size: 3rem;
+	margin-bottom: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--color-text);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	line-height: 1.2;
+}
+
+.lottery-promo {
+	position: relative;
+	z-index: 2;
+	/* background-color: var(--color-overlay); */
+	background-color: rgb(146 100 224 / 55%);
+	padding: 2rem;
+	border-radius: 8px;
+	max-width: 800px;
+	margin: 0 auto;
+	backdrop-filter: blur(5px);
+	margin-top: -100px;
+}
+
+.lottery-promo div {
+	font-size: 1.5rem;
+	margin: 1rem 0;
+	color: var(--color-text);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.lottery-promo button {
+	/* background-color: var(--color-secondary); */
+	background: linear-gradient(135deg,
+			#f5d742 0%,
+			#e5c028 25%,
+			#d4af37 50%,
+			#e5c028 75%,
+			#f5d742 100%);
+	color: var(--color-primary);
+	/* border: none; */
+	border: 1px solid white;
+	/* Primera línea blanca */
+	outline: 1px solid white;
+	/* Segunda línea blanca */
+	padding: 1rem 2.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border-radius: 50px;
+	cursor: pointer;
+	margin-top: 1.5rem;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Estilo base dorado */
+/*  .lottery-promo button {
+    
+     background: linear-gradient(135deg, 
+                #f5d742 0%, 
+                #e5c028 25%, 
+                #d4af37 50%, 
+                #e5c028 75%, 
+                #f5d742 100%);
+    color: #000;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6);
+}
+.lottery-promo button::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 2px solid white;
+    border-radius: 50px;
+    z-index: -1;
+} */
+
+.lottery-promo button:hover {
+	background-color: var(--color-accent);
+	color: var(--color-text);
+	transform: translateY(-3px);
+	box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5);
+}
+
+/* .lottery-promo button:hover {
+    background: linear-gradient(135deg, 
+                #ffdf4a 0%, 
+                #f5d033 25%, 
+                #e5c028 50%, 
+                #f5d033 75%, 
+                #ffdf4a 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.8);
+    color: #000;
+}
+/* Efecto de brillo al hacer hover */
+/*.lottery-promo button:hover::before {
+    animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+} */
+/* Slider premium */
+.premios-section {
+	padding: 2rem;
+	background-color: var(--color-primary);
+	position: relative;
+}
+
+.premios-section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+	z-index: 1;
+}
+
+.section-title {
+	color: var(--color-secondary);
+	font-size: 2.5rem;
+	margin-bottom: 3rem;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+h2.section-title {
+	/* background: linear-gradient(to right, #FFD700, #DAA520); */
+	/* -webkit-background-clip: text; */
+	/* -webkit-text-fill-color: transparent; */
+	text-shadow: 1px 1px 0px white, -1px -2px 3px white, -1px 1px 7px white, 1px 1px 0px white;
+}
+
+.section-title::after {
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 3px;
+	background-color: var(--color-accent);
+}
+
+.slider-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+	z-index: 2;
+}
+
+.slider {
+	display: flex;
+	transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+	height: 500px;
+}
+
+.slider img {
+	min-width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.slider-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(212, 175, 55, 0.8);
+	color: var(--color-primary);
+	border: none;
+	font-size: 2rem;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 10;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider-btn:hover {
+	background-color: var(--color-secondary);
+	transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+	left: 30px;
+}
+
+.next-btn {
+	right: 30px;
+}
+
+.slider-dots {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 12px;
+	z-index: 10;
+}
+
+.slider-dots .dot {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: 2px solid transparent;
+}
+
+.slider-dots .dot.active {
+	background-color: var(--color-secondary);
+	transform: scale(1.2);
+	border-color: var(--color-primary);
+}
+
+/* Footer premium */
+.main-footer {
+	background-color: #000;
+	padding: 2rem 0;
+	font-family: 'Arial', sans-serif;
+	color: #ffffff;
+}
+
+.footer-content {
+	display: flex;
+	flex: 1;
+	justify-content: space-between;
+	gap: 2rem;
+}
+
+.footer-container {
+	display: flex;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+	align-items: flex-start;
+	gap: 20rem;
+}
+
+.footer-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer-list li {
+	margin-bottom: 0.7rem;
+	line-height: 1.5;
+}
+
+.footer-logo {
+	margin-top: 0.5rem;
+}
+
+.footer-brand {
+	/* margin: 0 150px; */
+	flex: 0 0 auto;
+}
+
+.footer-section {
+	flex: 1;
+}
+
+.footer-heading {
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: #ffffff;
+}
+
+.footer-link {
+	color: #ffffff;
+	text-decoration: none;
+	transition: color 0.2s;
+	font-weight: 300;
+}
+
+.footer-link:hover {
+	color: #f1d010;
+}
+
+.footer-bottom {
+	text-align: center;
+	/* padding-top: 2rem;
+    margin-top: 2rem; */
+	/* border-top: 1px solid #e1e1e1; */
+}
+
+.copyright {
+	font-size: 0.9rem;
+	color: #666;
+}
+
+section.sorteos-container {
+	/* background-color: white; */
+	/* height: 700px;  */
+	margin-top: 200px;
+	/* display: list; */
+}
+
+section.sorteos-container .sorteos {
+	width: 300px;
+	/* height: 300px;  */
+	/* background-color: white; */
+	margin: 0 auto;
+	/* padding: 10px; */
+}
+
+section.sorteos-container .sorteo-info {
+	/* background-color: blue; */
+	margin: 0 auto;
+	width: 400px;
+	position: relative;
+	left: 50px;
+	text-align: center;
+}
+
+section.sorteos-container .sorteo-precio{
+	font-size: 18px;
+}
+
+section.sorteos-container .btn-comprar {
+	background-color: rgb(209, 55, 209);
+	cursor: pointer;
+	width: 300px;
+	height: 40px;
+	transition: background-color 0.3s ease;
+	font-size: 1rem;
+	border-radius: 20px;
+	/* Redondea los bordes */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	/* Agrega una sombra */
+	border: none;
+	margin-top: 10px;
+	/* Elimina el borde predeterminado */
+}
+
+section.sorteos-container .btn-comprar:hover {
+	background-color: rgb(180, 40, 180);
+	/* Cambia el color al pasar el ratón */
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+	/* Aumenta la intensidad de la sombra al pasar el ratón */
+}
+
+/* section.sorteos-container .sorteo-image{
+	margin: 0 auto;
+} */
+
+/* main.main-content {
+	/* background-color: white; 
+	/* height: 700px;  */
+	/* margin-top:200px;  */
+	/* display: list; */
+	/* margin-left: -10px; */
+/* } */ 
+
+.carton-numeros{
+	margin-top: 200px;
+	display: none;
+	align-content: center;
+    text-align: center;
+}
+
+/* Estilos para la sección de cartón de números */
+.numero {
+    /* padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0; */
+	
+	height: 40px;
+    width: 40px;
+    background-color: blue;
+	
+}
+
+/* Estilos para centrar el cartón */
+.carton-numeros {
+    margin: 20px auto;
+    width: fit-content;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+	margin-top: 200px;
+	background-image: url('../resources/fondocarton.jpg');
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rango-num {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.numrango{
+	color: gold;
+}
+.numrango:hover{
+	color: rgb(6, 57, 23);
+}
+.numeros-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.numeros-tabla {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.numeros-tabla td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.numero, .carton-numero {
+    height: 40px;
+    width: 40px;
+    background-color: #02250c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.numero:hover, .carton-numero:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(13, 218, 20, 0.2);
+	background-color: #45a049;
+}
+
+.carton-numero.vendido {
+    background-color: #f80505;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.carton-numero.disponible {
+    /* background-color: #f8f9fa; */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carton-numero.disponible:hover {
+    background-color: #e9efef;
+	color:#02250c;
+}
+
+.numero-busqueda {
+    display: flex;
+    gap: 10px;
+}
+
+.numero-busqueda input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+.numero-busqueda button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.numero-busqueda button:hover {
+    background-color: #45a049;
+}
+
+
+.rango-btn {
+    padding: 6px 2px;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+	background-color: green;
+}
+
+.rango-btn:hover {
+    background-color: #dee6e3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rango-btn {
+        padding: 4px 8px;
+        font-size: 0.9em;
+    }
+}
+
+
+/* Efectos y animaciones */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.hero-text,
+.lottery-promo,
+.premios-section {
+	animation: fadeIn 1s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+	.hero-text h1 {
+		font-size: 2.5rem;
+	}
+
+	.slider {
+		height: 400px;
+	}
+}
+
+@media (max-width: 768px) {
+	.main-header {
+		padding: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.menu-toggle {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 24px;
+		width: 30px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		z-index: 1001;
+	}
+
+	.menu-toggle span {
+		display: block;
+		width: 100%;
+		height: 3px;
+		background-color: var(--color-text);
+		transition: all 0.3s ease;
+	}
+
+	.main-nav {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 80%;
+		height: 100vh;
+		background-color: var(--color-primary);
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: right 0.3s ease;
+		z-index: 1000;
+	}
+
+	.main-nav.active {
+		right: 0;
+	}
+
+	.main-nav ul {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.hero-text h1 {
+		font-size: 2rem;
+	}
+
+	.lottery-promo div {
+		font-size: 1.2rem;
+	}
+
+	.slider {
+		height: 300px;
+	}
+
+	.slider-btn {
+		width: 50px;
+		height: 50px;
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.hero-text h1 {
+		font-size: 1.8rem;
+	}
+
+	.lottery-promo {
+		padding: 1.5rem;
+	}
+
+	.lottery-promo button {
+		padding: 0.8rem 1.8rem;
+		font-size: 1rem;
+	}
+
+	.slider {
+		height: 250px;
+	}
+
+	.section-title {
+		font-size: 2rem;
+	}
+}
+
+/* Mostrar menú hamburguesa solo en móvil */
+@media (max-width: 768px) {
+	.menu-toggle {
+		display: flex;
+	}
+
+	.main-nav {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 80%;
+		height: 100vh;
+		background-color: var(--color-primary);
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: right 0.3s ease;
+		z-index: 999;
+		padding-top: 80px;
+	}
+
+	.main-nav.active {
+		right: 0;
+	}
+
+	.main-nav ul {
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+		padding: 0 20px;
+	}
+
+	.main-nav li {
+		margin: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	.main-nav a {
+		display: block;
+		padding: 1rem;
+		font-size: 1.2rem;
+	}
+
+	/* Animación del icono hamburguesa */
+	.menu-toggle.active span:nth-child(1) {
+		transform: translateY(10px) rotate(45deg);
+	}
+
+	.menu-toggle.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.menu-toggle.active span:nth-child(3) {
+		transform: translateY(-10px) rotate(-45deg);
+	}
+}
+
+@media (max-width: 768px) {
+	.footer-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		text-align: center;
+	}
+}
+
+#contacto-section {
+    display: flex;
+    flex-direction: row; /* Elementos en horizontal */
+    flex-wrap: nowrap; /* Evita que se envuelvan */
+    justify-content: space-between; /* Distribuye el espacio */
+    align-items: flex-start; /* Alinea al inicio */
+    gap: 20px; /* Espacio entre elementos */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 200px auto 0; /* Margen superior de 200px */
+    width: 95%; /* Ancho relativo */
+}
+
+#mapa {
+    flex: 1; /* Ocupa espacio disponible */
+    min-width: 300px;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 20px; /* Para que quede fijo al hacer scroll */
+}
+
+
+#formContacto {
+    flex: 1; /* Ocupa espacio disponible */
+    min-width: 300px;
+    padding: 20px;
+    background: gold;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 20px; /* Para que quede fijo al hacer scroll */
+}
+/* Estilos adicionales para el formulario */
+#formContacto h2 {
+    margin-top: 0;
+    color: #333;
+}
+#showpremios{
+	margin-top:200px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+	color:green;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+
+/* Ajustes para pantallas medianas (tablets) */
+@media (max-width: 992px) {
+    #contacto-section {
+        flex-direction: row;
+        gap: 170px;
+    }
+    
+    #mapa, #formContacto {
+        min-width: 250px;
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    #contacto-section {
+        flex-direction: column;
+        margin-top: 170px; /* Menos margen superior en móviles */
+    }
+    
+    #mapa, #formContacto {
+        width: 100%;
+        min-width: auto;
+        position: static; /* Quita el sticky en móviles */
+    }
+    
+    #mapa {
+        height: 300px; /* Altura menor en móviles */
+    }
+}
+
+
+/* Estilos para la galería de premios */
+.premios-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.thumbs-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #6b46c1 #f3f3f3;
+}
+
+.thumbs-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.thumbs-container::-webkit-scrollbar-track {
+    background: #f3f3f3;
+    border-radius: 10px;
+}
+
+.thumbs-container::-webkit-scrollbar-thumb {
+    background-color: #6b46c1;
+    border-radius: 10px;
+}
+
+.thumb-item {
+    flex: 0 0 auto;
+    width: 120px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.thumb-item:hover {
+    transform: scale(1.05);
+}
+
+.thumb-img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+
+.thumb-item.active .thumb-img {
+    border-color: #6b46c1;
+}
+
+.thumb-title {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.premio-detalle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* background: #fff; */
+	background: linear-gradient(to bottom, rgb(129 35 175 / 80%), rgba(0, 0, 0, 0.2));
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	
+}
+
+.premio-imagen {
+    flex: 1;
+    min-width: 300px;
+}
+
+.premio-imagen img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.premio-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.premio-info h2 {
+    color: #e5c028;;
+    margin-bottom: 15px;
+	text-shadow: 1px 1px 2px rgba(194, 213, 22, 0.5);
+}
+
+.premio-info p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.premio-caracteristicas {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+	color:black;
+}
+
+.premio-caracteristicas p {
+    margin-bottom: 8px;
+}
+
+/* Responsividad para sorteos */
+@media (max-width: 768px) {
+    section.sorteos-container {
+        margin-top: 150px;
+        padding: 0 1rem;
+    }
+
+    section.sorteos-container .sorteos,
+    section.sorteos-container .sorteo-info {
+        width: 100%;
+        left: 0;
+    }
+
+    section.sorteos-container .btn-comprar {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsividad para cartón de números */
+/* @media (max-width: 768px) {
+    .carton-numeros {
+        margin-top: 100px;
+        padding: 1rem;
+    }
+
+    .numero, .carton-numero {
+        height: 35px;
+        width: 35px;
+        font-size: 0.9rem;
+    }
+} */
+ /* Ajustes para móviles */
+@media (max-width: 768px) {
+    /* Reduce tamaño de celdas y números */
+    .numeros-tabla td {
+        padding: 3px !important;
+    }
+    
+    .numero, 
+    .carton-numero {
+        height: 28px !important;
+        width: 28px !important;
+        font-size: 0.7em !important;
+        margin: 1px !important;
+    }
+    
+    /* Ajusta el contenedor principal */
+    .carton-numeros {
+        padding: 10px 5px !important;
+        margin: 120px 0 0 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+    
+    /* Ajusta botones de rango */
+    .rango-btn {
+        padding: 3px 6px !important;
+        font-size: 0.7em !important;
+        margin: 2px !important;
+    }
+    
+    /* Asegura que la tabla no desborde */
+    .numeros-container {
+        overflow-x: auto;
+        width: 100%;
+        padding: 0 5px;
+        box-sizing: border-box;
+    }
+    
+    .numeros-tabla {
+        margin: 0 auto;
+    }
+}
+
+/* Ajustes al footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .footer-list {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mejora en hero background para móviles */
+@media (max-width: 768px) {
+    .hero-background {
+        height: 250px;
+    }
+
+    .purple-bar {
+        margin-top: 60px;
+        height: 50px;
+    }
+}
+/* Estilo para el contenedor principal del modal */
+#registroCliente {
+    display: none; /* Cambiado a none para que se active con JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    overflow-y: auto;
+    padding: 100px 0;
+}
+
+/* Contenedor del contenido del modal */
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #d80a0a;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Estilos para el título */
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+/* Estilos para el formulario */
+#registroClienteForm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+#registroClienteForm label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+#registroClienteForm input,
+#registroClienteForm select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+#registroClienteForm input:focus,
+#registroClienteForm select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Estilo para el botón */
+#registroClienteForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+#registroClienteForm button:hover {
+    background-color: #45a049;
+}
+.input {
+	color:black;
+}
+
+/* Estilos para los métodos de pago */
+.metodos-pago-horizontal {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.metodo-pago-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    background: #f9f9f9;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metodo-pago-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-entidad img {
+    max-width: 80px;
+    max-height: 40px;
+    margin-bottom: 10px;
+}
+
+.detalles-entidad h4 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #222;
+}
+
+.datos-cuenta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dato {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    
+    .metodos-pago-horizontal {
+        grid-template-columns: 1fr;
+    }
+    
+    #registroClienteForm input,
+    #registroClienteForm select {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    #registroClienteForm button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .metodo-pago-item {
+        padding: 12px;
+    }
+}
+
+/* Fondo del modal (pantalla completa, oscurecido) */
+.modal {
+    display: none; /* Se muestra al activar con JS */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+/* Contenedor del contenido del modal */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centrado vertical y horizontal */
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+/* Botón de cerrar (la X) */
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Estilo de los inputs y el botón */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para el carrito flotante */
+#shopcart {
+    position: fixed;
+    top: 320px;
+    right: 20px;
+    width: 280;
+    max-height: 80vh;
+    z-index: 1000;
+    background: linear-gradient(to bottom, 
+                rgba(140, 1, 154, 0.9) 0%, 
+                rgba(140, 1, 154, 0.7) 50%, 
+                rgba(140, 1, 154, 0.5) 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: none; /* Inicialmente oculto */
+    transition: all 0.3s ease;
+}
+
+#shopcart .body {
+    padding: 10px;
+    overflow-y: auto;
+    max-height: calc(80vh - 120px);
+}
+
+#shopcart h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 15px;
+    background: black;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.cart {
+    margin-top: 15px;
+}
+
+.cart-header, .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.cart-items {
+    max-height: 200px;
+    overflow-y: auto;
+    margin: 10px 0;
+	display: flex;
+	text-align: center;
+}
+.cart-item {
+	margin: 0 3px;
+}
+.remove-item{
+	cursor: pointer;
+	/* margin: 0 auto; */
+}
+
+.buy-btn {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;/*136f04*/
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.buy-btn:hover {
+    background: #218838;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e9ecef;
+    margin: 10px 0;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+    #shopcart {
+        width: 90%;
+        right: 5%;
+        left: 5%;
+    }
+}
+#pais {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px 30px 10px 15px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    color:black;
+}
+
+#pais option:checked {
+    background-color: #4CAF50;
+    color: black;
+}
