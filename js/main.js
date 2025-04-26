@@ -4,6 +4,7 @@ import { initPremiosGallery, setupPremiosSlider } from './premios.js';
 import { setupTicketsTable, loadGoogleMaps, initMap } from './tickets.js';
 import { setupAuth } from './auth.js';
 import { setupCompra } from './compra.js';
+import { showPoliticas } from './politicas.js';
 document.addEventListener('DOMContentLoaded', () => {
     // Verificar que los datos están disponibles
     if (!window.appData) {
@@ -32,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //llamada a metodo de compra
     setupCompra();
+
+	showPoliticas();
     // Hacer disponible initMap globalmente para Google Maps
     window.initMap = initMap;
     
@@ -42,10 +45,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-// // Ejecutar setupCompra cuando se abre el modal
-// document.querySelector('#regCliente')?.addEventListener('click', () => {
-//     // alert('llego main');
-//     setTimeout(() => {
-//         setupCompra();
-//     }, 100); // Espera a que el formulario se renderice dentro del modal
-// });

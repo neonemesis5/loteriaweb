@@ -8,7 +8,6 @@ header("Referrer-Policy: strict-origin-when-cross-origin");
 header("Content-Security-Policy: default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:;");
 // header("Content-Security-Policy: default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:; script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; frame-src https://www.google.com;");
 
-
 // Configuración de sesión segura
 session_start([
 	'cookie_lifetime' => 86400,
@@ -27,26 +26,26 @@ require __DIR__ . '/controllers/personacontroller.php';
 require __DIR__ . '/controllers/compracontroller.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Limpiar buffer de salida
-    if (ob_get_length()) ob_end_clean();
-    
-    // Leer input JSON
-    $json = file_get_contents('php://input');
-    $input = json_decode($json, true);
-    
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        http_response_code(400);
-        echo json_encode(['success' => false, 'message' => 'Datos JSON inválidos']);
-        exit;
-    }
+	// Limpiar buffer de salida
+	if (ob_get_length()) ob_end_clean();
 
-    if (!empty($input['action']) && $input['action'] === 'registrarCompra') {
-        $compraController = new CompraController();
+	// Leer input JSON
+	$json = file_get_contents('php://input');
+	$input = json_decode($json, true);
+
+	if (json_last_error() !== JSON_ERROR_NONE) {
+		http_response_code(400);
+		echo json_encode(['success' => false, 'message' => 'Datos JSON inválidos']);
+		exit;
+	}
+
+	if (!empty($input['action']) && $input['action'] === 'registrarCompra') {
+		$compraController = new CompraController();
 		$response = $compraController->registrarCompra($input); // Pasar $input directamente
-        header('Content-Type: application/json');
-        echo json_encode($response);
-        exit;
-    }
+		header('Content-Type: application/json');
+		echo json_encode($response);
+		exit;
+	}
 }
 
 // Crear instancia del controlador
@@ -67,7 +66,6 @@ $entidadesController = new EntidadesController();
 $entidades = $entidadesController->getEntidades();
 
 $personaController = new PersonaController();
-// $persona = $personaController->getAll(); //PRUEBA FUNCIONAL PARA LUEGO CARGAR LOS GANADORES
 
 // Protección contra session fixation
 session_regenerate_id(true);
@@ -81,7 +79,6 @@ ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error.log');
 
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -94,7 +91,6 @@ ini_set('error_log', __DIR__ . '/error.log');
 	<link href="css/style.css?v=<?php echo filemtime('css/style.css'); ?>" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="icon" href="resources/logo.png" type="image/png">
-	<!-- Preload de imágenes de premios -->
 	<!-- Preload de imágenes de premios -->
 	<?php foreach ($premios as $premio): ?>
 		<link rel="preload" href="resources/premios/<?php echo htmlspecialchars($premio['foto']); ?>" as="image" imagesrcset="resources/premios/<?php echo htmlspecialchars($premio['foto']); ?> 1x, resources/premios/<?php echo htmlspecialchars($premio['foto']); ?> 2x">
@@ -194,7 +190,7 @@ ini_set('error_log', __DIR__ . '/error.log');
 				<!-- MAPA DE GOOGLE -->
 				<div id="mapa" style="width: 100%; height: 300px; margin-top: 20px;"></div>
 
-				<form id="formContacto"  action="sendMail.php">
+				<form id="formContacto" action="sendMail.php">
 					<h2>Contáctanos</h2>
 
 					<div class="form-group">
@@ -259,7 +255,7 @@ ini_set('error_log', __DIR__ . '/error.log');
 				<div class="modal-content">
 					<span class="close">&times;</span>
 					<h2>Registro de Cliente</h2>
-					<form id="registroClienteForm" onsubmit="return false;" > 
+					<form id="registroClienteForm" onsubmit="return false;">
 						<label for="nombre">Nombre:</label>
 						<input type="text" id="nombre" class="input" name="nombre" required>
 
@@ -283,11 +279,11 @@ ini_set('error_log', __DIR__ . '/error.log');
 
 						<label for="telefono">Número de Teléfono:</label>
 						<input type="tel" id="telefono" name="telefono" class="input" required>
-						
+
 						<div class="checkbox-container" style="display: flex; align-items: center; margin: 10px 0;">
 							<input type="checkbox" id="is_adult" name="is_adult" class="input" required style="margin-right: 10px;">
 							<label for="is_adult" style="margin-bottom: 0;">Soy Mayor de Edad</label>
-						</div>						
+						</div>
 						<button id="regCliente" type="submit">Registrar</button>
 					</form>
 				</div>
@@ -370,17 +366,14 @@ ini_set('error_log', __DIR__ . '/error.log');
 				</div>
 			</div>
 
-			<!-- Modal para compra -->
-			<div id="compraModal" class="modal" style="display:none;">
+			<div id="modalPolitica" class="modal">
 				<div class="modal-content">
-					<span class="close-modal">&times;</span>
-					<h3 id="modalSorteoTitulo"></h3>
-					<div id="modalSorteoContent"></div>
+					<span class="close-button">&times;</span>
+					<h2 id="modalTitulo"></h2>
+					<div id="modalContenido"></div>
 				</div>
 			</div>
 		</main>
-
-		<!-- Footer -->
 		<footer class="main-footer" role="contentinfo">
 			<div class="footer-container">
 				<div class="footer-brand">
@@ -408,12 +401,12 @@ ini_set('error_log', __DIR__ . '/error.log');
 					<div class="footer-section">
 						<h3 class="footer-heading">Política</h3>
 						<ul class="footer-list">
-							<li><a href="#" class="footer-link">Términos y condiciones</a></li>
-							<li><a href="#" class="footer-link">Política de reembolso</a></li>
-							<li><a href="#" class="footer-link">Política de privacidad</a></li>
-							<li><a href="#" class="footer-link">Política de envío</a></li>
-							<li><a href="#" class="footer-link">Política de cookies</a></li>
-							<li><a href="#" class="footer-link">FAQ</a></li>
+							<li><a id="foo_tc" class="footer-link">Términos y condiciones</a></li>
+							<li><a id="foo_pr" class="footer-link">Política de reembolso</a></li>
+							<li><a id="foo_pp" class="footer-link">Política de privacidad</a></li>
+							<li><a id="foo_pe" class="footer-link">Política de envío</a></li>
+							<li><a id="foo_pc" class="footer-link">Política de cookies</a></li>
+							<li><a id="foo_fa" class="footer-link">FAQ</a></li>
 						</ul>
 					</div>
 				</div>

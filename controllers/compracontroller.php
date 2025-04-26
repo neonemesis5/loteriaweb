@@ -68,7 +68,9 @@ class CompraController extends BaseController
             $precio = (float)$data['precio'];
             $ip = $_SERVER['REMOTE_ADDR'];
             $fecha = date('Y-m-d H:i:s');
-            $_duplicados = [];
+            $numerosRegistrados = [];
+            $duplicados = [];
+
             foreach ($numeros as $numero) {
                 $cartonData = [
                     'persona_id' => $personaId,
@@ -79,23 +81,32 @@ class CompraController extends BaseController
                     'precio' => $precio,
                     'status' => 'V' // Vendido
                 ];
-                $_restemp=$this->cartonModel->getById($numero);
-                if(empty($_restemp))
+
+                try {
                     $this->cartonModel->insert($cartonData);
-                else
-                    $numeros = array_diff($numeros, [$numero]);
+                    $numerosRegistrados[] = $numero;
+                } catch (PDOException $e) {
+                    // Código 1062 = Violación de UNIQUE key en MySQL
+                    if ($e->getCode() == 23000 || strpos($e->getMessage(), 'Duplicate entry') !== false) {
+                        $duplicados[] = $numero;
+                        continue; // Salta al siguiente número
+                    }
+                    throw $e; // Relanza otros errores
+                }
             }
-           
+            if (!empty($duplicados)) {
+                throw new Exception("Los números " . implode(', ', $duplicados) . " ya estaban reservados");
+            }
             // Enviar email de confirmación 
-            $this->enviarEmailConfirmacion($personaData, $numeros, $sorteoId, $precio);
-            $precioTotal = number_format($precio * count($numeros), 2);
-            $whatsappUrl = $this->generarWhatsAppUrl($personaData, $numeros, $sorteoId, $precioTotal);
-        
-        return [
-            'success' => true,
-            'message' => 'Registro exitoso',
-            'whatsapp_url' => $whatsappUrl
-        ];
+            $this->enviarEmailConfirmacion($personaData, $numerosRegistrados, $sorteoId, $precio);
+            $precioTotal = number_format($precio * count($numerosRegistrados), 2);
+            $whatsappUrl = $this->generarWhatsAppUrl($personaData, $numerosRegistrados, $sorteoId, $precioTotal);
+
+            return [
+                'success' => true,
+                'message' => 'Registro exitoso',
+                'whatsapp_url' => $whatsappUrl
+            ];
         } catch (Exception $e) {
             http_response_code(400);
             echo json_encode([
@@ -340,14 +351,12 @@ class CompraController extends BaseController
 
         $texto = rawurlencode(
             "Hola, mi nombre es *{$personaData['name']} {$personaData['lastname']}*.\n" .
-            "Teléfono: {$personaData['telefonos']}\n" .
-            "Correo: {$personaData['email']}\n\n" .
-            "He realizado una compra en el sorteo #$sorteoId.\n" .
-            "Números seleccionados: *$numerosStr*\n" .
-            "Total pagado: *$$total*\n\n" .
-            "Adjunto el comprobante de pago.".
-            "El metodo de Pago Elegido es: ".
-            "Cuentas RUT 25.732.506-7 Banco Copec Pay Tipo de cuenta - Cuenta de Vista Nº de Cuenta 12573250601 \nZelle fmedinac24@gmail.com FA MEDINA C. CONSTRUCTION LLC \nChristian Gerardo Medina Colmenares Cedula 16.612.896 Nº de Cuenta 0134-0435-6643-5102-8330"
+                "Teléfono: {$personaData['telefonos']}\n" .
+                "Correo: {$personaData['email']}\n\n" .
+                "He realizado una compra en el sorteo #$sorteoId.\n" .
+                "Números seleccionados: *$numerosStr*\n" .
+                "Total pagado: *$$total*\n\n" .
+                "Adjunto el comprobante de pago." 
         );
 
         return "https://api.whatsapp.com/send/?phone=573204563721&text=$texto&type=phone_number";

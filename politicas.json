@@ -1,0 +1,190 @@
+{
+	"terminos_condiciones": {
+		"titulo": "Términos y Condiciones - Los Audaces",
+		"politicas_generales": {
+			"politica_compra": {
+				"edad_minima": {
+					"general": "Solo pueden participar personas naturales mayores de 18 años.",
+					"excepciones": {
+						"Honduras": "21 años"
+					}
+				},
+				"seleccion_numeros": [
+					"Los números disponibles se detallan en la página de compra de cada sorteo.",
+					"Una vez seleccionado su número, debe contactarnos vía WhatsApp para confirmar la asignación enviada a su correo electrónico y validar su comprobante de pago."
+				],
+				"conflictos_numeros": "Si dos o más personas compran el mismo número simultáneamente, Los Audaces verificará el orden de compra en sus registros. La primera compra confirmada tendrá prioridad, y las demás serán reembolsadas.",
+				"entrega_tickets": "El ticket se enviará por correo electrónico en un plazo de 12 a 24 horas después de confirmado el pago."
+			},
+			"politica_reembolso": {
+				"cancelacion_sorteo": "Si el sorteo no se realiza por fuerza mayor, se reembolsará el 100% del dinero a todos los participantes.",
+				"pagos_no_confirmados": "No realice ningún pago si no ha recibido previamente la asignación del número por correo electrónico. En caso de hacerlo, su dinero será reembolsado una vez verificado el pago.",
+				"plazo_reembolso": "Los reembolsos se procesarán dentro de las 24 horas posteriores a la solicitud aprobada."
+			},
+			"politica_sorteo": {
+				"confirmacion": "La fecha, hora y mecanismo del sorteo se anunciarán con anticipación en redes sociales y/o la página web.",
+				"imagenes_premios": "Las fotografías de los premios son ilustrativas y pueden variar en detalles menores."
+			},
+			"politica_premios": {
+				"entrega": "Los premios se entregarán personalmente en un lugar designado por Los Audaces, previa coordinación con el ganador.",
+				"plazo_reclamo": "Los ganadores deben reclamar su premio dentro de las 72 horas posteriores al contacto del equipo. Después de este plazo, el premio se considerará abandonado, salvo acuerdo previo.",
+				"transferibilidad": "Los premios son intransferibles, excepto por autorización expresa de Los Audaces."
+			},
+			"politica_impuestos": {
+				"responsabilidad_ganador": "Los ganadores asumen cualquier impuesto, tasa o gravamen aplicable al premio recibido."
+			},
+			"politica_cancelacion": "Los Audaces se reservan el derecho de cancelar o posponer un sorteo por fuerza mayor o circunstancias imprevisibles, con comunicación oportuna a los participantes.",
+			"politica_modificaciones": "Los Audaces pueden actualizar estos términos en cualquier momento. Los cambios serán publicados en la página web y serán efectivos inmediatamente.",
+			"aceptacion_terminos": "Al participar, los usuarios aceptan automáticamente todas las políticas aquí descritas.",
+			"politica_sanciones": {
+				"prohibiciones": {
+					"fraude": [
+						"Manipulación de sorteos",
+						"Uso de múltiples cuentas",
+						"Falsificación de documentos"
+					],
+					"consecuencias": [
+						"Descalificación inmediata",
+						"Retención de premios/reembolsos",
+						"Acciones legales según jurisdicción"
+					]
+				}
+			},
+			"canales_comunicacion": {
+				"medios_validos": {
+					"whatsapp": {
+						"numero": "+573204563721",
+						"verificacion": "Verificado con sello oficial en la cuenta"
+					},
+					"email": {
+						"direccion": "empresa@losaudaces.com",
+						"dominio": "@losaudaces.com"
+					}
+				},
+				"prevencion_fraudes": [
+					"Nunca solicitamos pagos por SMS o redes sociales",
+					"Desconfíe de números no listados aquí",
+					"Verifique siempre el sello oficial en WhatsApp",
+					"El dominio @losaudaces.com es el único válido"
+				]
+			}
+		},
+		"politica_privacidad": {
+			"proteccion_datos": "Los datos personales se manejan con confidencialidad y solo se compartirán con autoridades si es requerido por ley.",
+			"uso_imagen": "Los ganadores autorizan el uso de su imagen y nombre en material audiovisual promocional de Los Audaces (redes sociales, página web, etc.).",
+			"verificacion_identidad": {
+				"documentacion_requerida": {
+					"ganador": [
+						"Documento de identidad oficial (cédula, pasaporte o DNI vigente) - original y copia",
+						"Comprobante de asignación del número ganador (ticket enviado por correo electrónico) - original y copia",
+						"En premios de alto valor: constancia de domicilio actualizada (no mayor a 3 meses)",
+						"En premios de alto valor: declaración jurada de legitimidad del documento"
+					],
+					"terceros": [
+						"Autorización notarial firmada por el ganador (con firma reconocida)",
+						"Copia autenticada del documento de identidad del ganador",
+						"Documento de identidad original y copia del representante"
+					]
+				},
+				"validacion_gobierno": "Los Audaces verificará la autenticidad de los documentos con las autoridades competentes del país del ganador cuando sea requerido por normativa local o por el valor del premio.",
+				"proceso_adicional": {
+					"premios_alto_valor": [
+						"Validación biométrica en punto de entrega",
+						"Fotografía firmada con documento visible",
+						"Verificación de antecedentes penales (para premios superiores a $10,000 USD)"
+					],
+					"plazos": "La validación puede tomar de 24 a 72 horas hábiles según complejidad"
+				}
+			}
+		},
+		"entrega_premios_pais": {
+			"responsabilidad_ganador": [
+				{
+					"Los premios están sujetos a las leyes y regulaciones del país donde se entreguen. Esto incluye:": [
+						"Impuestos locales (ej: retenciones, IVA, impuesto a premios).",
+						"Trámites aduaneros (para premios internacionales)."
+					]
+				},
+				"El ganador debe cubrir cualquier gravamen o tasa requerida para la liberación del premio."
+			]
+		}
+	},
+	"faqs": {
+		"premios": [
+			{
+				"pregunta": "¿Quién puede retirar el premio?",
+				"respuesta": "Solo el ganador registrado, previa verificación de identidad (cédula/pasaporte). En caso de imposibilidad, se requiere autorización por escrito."
+			},
+			{
+				"pregunta": "¿Qué pasa si no reclamo mi premio en 72 horas?",
+				"respuesta": "El premio se declarará nulo, salvo acuerdo previo con el equipo."
+			}
+		],
+		"pagos": [
+			{
+				"pregunta": "¿Aceptan pagos en efectivo?",
+				"respuesta": "Sí, contamos con cobradores certificados. Contáctenos para coordinar."
+			},
+			{
+				"pregunta": "¿Dónde encuentro los métodos de pago?",
+				"respuesta": "Al registrarte, recibirás un correo con las cuentas bancarias disponibles."
+			}
+		],
+		"verificacion_resultados": [
+			{
+				"pregunta": "¿Cómo verifico mi pago?",
+				"respuesta": "Recibirá un correo de confirmación una vez validado el pago."
+			},
+			{
+				"pregunta": "¿Dónde veo los resultados de sorteos anteriores?",
+				"respuesta": "Consulta la sección 'Ganadores' en nuestra página web."
+			}
+		],
+		"soporte": [
+			{
+				"pregunta": "¿Cómo contacto a un asesor?",
+				"respuesta": "Escríbenos al WhatsApp oficial o al correo electrónico en la sección 'Contacto'."
+			}
+		]
+	},
+	"politica_cookies": {
+		"definicion": "Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita nuestro sitio web. Estas nos permiten ofrecer funciones esenciales como: compra de boletos, acceso seguro a cuentas, personalización de contenido y análisis de tráfico.",
+		"tipos_cookies": [
+			{
+				"nombre": "Esenciales",
+				"descripcion": "Necesarias para el funcionamiento básico del sitio (ej: carrito de compras, autenticación)"
+			},
+			{
+				"nombre": "Rendimiento",
+				"descripcion": "Recopilan datos anónimos sobre el uso del sitio para mejoras"
+			},
+			{
+				"nombre": "Funcionalidad",
+				"descripcion": "Permiten recordar preferencias (idioma, región)"
+			},
+			{
+				"nombre": "Publicitarias",
+				"descripcion": "Muestran anuncios relevantes basados en intereses"
+			}
+		],
+		"desactivacion": {
+			"instrucciones": "Puede gestionar o desactivar cookies desde la configuración de su navegador. En nuestro sitio encontrará un banner de consentimiento donde puede seleccionar sus preferencias.",
+			"advertencia": "Al desactivar cookies esenciales, algunas funcionalidades como: compras, inicio de sesión o personalización no estarán disponibles."
+		},
+		"actualizaciones": {
+			"politica": "Nos reservamos el derecho de actualizar esta política según cambios tecnológicos, legales u operativos. Las modificaciones serán publicadas en esta sección con la fecha de última actualización.",
+			"fecha_actualizacion": "2023-11-15",
+			"notificacion": "Los cambios significativos serán notificados mediante banner destacado durante 7 días."
+		},
+		"enlaces_utiles": [
+			{
+				"texto": "Guía para gestionar cookies en Chrome",
+				"url": "https://support.google.com/chrome/answer/95647"
+			},
+			{
+				"texto": "Configuración de cookies en Firefox",
+				"url": "https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias"
+			}
+		]
+	}
+}
