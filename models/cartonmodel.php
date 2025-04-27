@@ -4,21 +4,25 @@ use Core\BaseModel;
 require_once __DIR__ . '/../core/basemodel.php';
 require_once __DIR__ . '/../core/Database.php';
 
-class CartonModel extends BaseModel {
-    public function __construct() {
+class CartonModel extends BaseModel
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->table = 'carton';
     }
 
     // Obtener todos los cartones
-    public function getAll(): array {
+    public function getAll(): array
+    {
         return $this->query(
             "SELECT * FROM {$this->table} ORDER BY id ASC"
         );
     }
 
     // Obtener un cartón por ID
-    public function getById($id): ?array {
+    public function getById($id): ?array
+    {
         $result = $this->query(
             "SELECT * FROM {$this->table} WHERE id = :id",
             ['id' => $id]
@@ -27,7 +31,8 @@ class CartonModel extends BaseModel {
     }
 
     // Obtener cartones vendidos por sorteo
-    public function getCartonSellBySorteo($sorteoId): array {
+    public function getCartonSellBySorteo($sorteoId): array
+    {
         return $this->query(
             "SELECT id, numero FROM {$this->table} WHERE sorteo_id = :sorteo_id AND status = :st ORDER BY numero ASC",
             ['sorteo_id' => $sorteoId, 'st' => 'V']
@@ -35,22 +40,26 @@ class CartonModel extends BaseModel {
     }
 
     // Insertar un nuevo cartón (usa create del BaseModel)
-    public function insert(array $data): int {
+    public function insert(array $data): int
+    {
         return $this->create($data);
     }
 
     // Actualizar un cartón (usa update del BaseModel)
-    public function updateCarton($id, array $data): bool {
+    public function updateCarton($id, array $data): bool
+    {
         return $this->update($id, $data);
     }
 
     // Eliminar un cartón por ID (usa delete del BaseModel)
-    public function deleteCarton($id): bool {
+    public function deleteCarton($id): bool
+    {
         return $this->delete($id);
     }
 
     // Buscar cartones por persona
-    public function getByPersona($personaId): array {
+    public function getByPersona($personaId): array
+    {
         return $this->query(
             "SELECT * FROM {$this->table} WHERE persona_id = :persona_id",
             ['persona_id' => $personaId]
@@ -58,7 +67,8 @@ class CartonModel extends BaseModel {
     }
 
     // Buscar cartones por sorteo
-    public function getBySorteo($sorteoId): array {
+    public function getBySorteo($sorteoId): array
+    {
         return $this->query(
             "SELECT * FROM {$this->table} WHERE sorteo_id = :sorteo_id",
             ['sorteo_id' => $sorteoId]
@@ -66,12 +76,29 @@ class CartonModel extends BaseModel {
     }
 
     // Verificar si un número ya fue vendido para un sorteo específico
-    public function isNumeroVendido($sorteoId, $numero): bool {
+    public function isNumeroVendido($sorteoId, $numero): bool
+    {
         $result = $this->query(
             "SELECT COUNT(*) as total FROM {$this->table} 
              WHERE sorteo_id = :sorteo_id AND numero = :numero AND status = 'V'",
             ['sorteo_id' => $sorteoId, 'numero' => $numero]
         );
         return isset($result[0]['total']) && $result[0]['total'] > 0;
+    }
+    // Dentro de tu clase CartonModel existente
+    public function eliminarReservacionesExpiradas(): int
+    {
+        $sql = "DELETE FROM {$this->table} 
+            WHERE checkcomp = 'R' 
+            AND fechacompra < DATE_SUB(NOW(), INTERVAL 1 HOUR)";
+
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->rowCount();
+        } catch (PDOException $e) {
+            error_log("Error al limpiar reservaciones: " . $e->getMessage());
+            throw $e;
+        }
     }
 }

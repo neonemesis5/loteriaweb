@@ -99,7 +99,7 @@ class CompraController extends BaseController
             }
             // Enviar email de confirmación 
             $this->enviarEmailConfirmacion($personaData, $numerosRegistrados, $sorteoId, $precio);
-            $precioTotal = number_format($precio * count($numerosRegistrados), 2);
+            $precioTotal = number_format($precio , 2);
             $whatsappUrl = $this->generarWhatsAppUrl($personaData, $numerosRegistrados, $sorteoId, $precioTotal);
 
             return [
